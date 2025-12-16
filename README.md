@@ -1,4 +1,4 @@
-# 📈 House Martell Project
+# 🏰 House Martell Project
 
 ## Customer Experience (CX) - Vanguard
 
@@ -6,7 +6,7 @@ This project focuses on analyzing the results of a digital A/B test conducted by
 
 Our role is to act as Data Analysts, cleaning the provided datasets, decoding the experiment's performance, and presenting key findings and recommendations.
 
-## 🗃️ 2. Data Sources
+## 🗃️ Data Sources
 
 We are working with three primary datasets, which were merged into a single master data frame for analysis:
 
