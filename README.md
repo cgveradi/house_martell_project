@@ -23,6 +23,5 @@ The initial two days were dedicated to foundational data work: setup, merging, c
 ### - Data Preparation and Cleaning
 
 1.  **Data Consolidation:** Successfully loaded and merged the three source files (`demo`, combined `web_data`, and `experiment`) into a single **Master Data Frame** keyed on `client_id`.
-2.  **Missing Value Handling:** (Detailed description of specific actions taken, e.g., _Missing values in the 'Gender' column were imputed with the mode, while web activity NaNs were interpreted as no activity._)
 
 ### - Initial Client Demographic Analysis
