@@ -24,7 +24,5 @@ The initial two days were dedicated to foundational data work: setup, merging, c
 
 1.  **Data Consolidation:** Successfully loaded and merged the three source files (`demo`, combined `web_data`, and `experiment`) into a single **Master Data Frame** keyed on `client_id`.
 2.  **Missing Value Handling:** (Detailed description of specific actions taken, e.g., _Missing values in the 'Gender' column were imputed with the mode, while web activity NaNs were interpreted as no activity._)
-3.  **Data Type Validation:** Ensured all key date and time columns were converted to `datetime` objects and numerical features were correctly typed.
-4.  **Feature Engineering:** A critical new binary column, `process_completed`, was created in the Master Data Frame to act as the primary **Conversion Metric** for the A/B test analysis.
 
 ### - Initial Client Demographic Analysis
