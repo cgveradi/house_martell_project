@@ -1,3 +1,10 @@
-# Jupyter automatic files
+# Jupyter
 .ipynb_checkpoints/
 
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
