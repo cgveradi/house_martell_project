@@ -1,6 +1,10 @@
 # Jupyter
 .ipynb_checkpoints/
 
+# Environment and Auto-generated files
+anaconda_projects/db/
+.virtual_documents/
+
 # Python
 __pycache__/
 *.pyc
