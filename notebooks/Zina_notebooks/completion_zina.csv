@@ -1,0 +1,4 @@
+Variation,total_clients,completed_clients,completion_rate
+,69657,47024,0.67508
+Control,23532,15434,0.65587
+Test,26968,18687,0.69293
