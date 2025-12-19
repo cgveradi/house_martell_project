@@ -1,0 +1,16 @@
+Variation,process_step,avg_seconds
+,start,56.4463
+,step_1,63.3639
+,step_2,94.2372
+,step_3,132.1137
+Test,start,60.5538
+Test,step_1,60.4956
+Test,step_2,88.6324
+Test,step_3,128.9463
+Control,start,62.9065
+Control,step_1,50.2542
+Control,step_2,91.7156
+Control,step_3,135.1022
+Test,confirm,235.937
+,confirm,279.7086
+Control,confirm,153.8521
