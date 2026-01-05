@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-As a Data Analyst in the Customer Experience (CX) team at **Vanguard**, I evaluated a digital experiment conducted from March 15, 2017, to June 20, 2017.
+As a Data Analyst in the Customer Experience (CX) team at **Vanguard**, We evaluated a digital experiment conducted from March 15, 2017, to June 20, 2017.
 
 The primary objective was to determine if a **new, modern User Interface (UI)** with in-context prompts would lead to a higher process completion rate compared to the **traditional interface**.
 
