@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-As a Data Analyst in the Customer Experience (CX) team at **Vanguard**, We evaluated a digital experiment conducted from March 15, 2017, to June 20, 2017.
+As a team of Data Analysts in the Customer Experience (CX) team at **Vanguard**, we evaluated a digital experiment conducted from March 15, 2017, to June 20, 2017.
 
 The primary objective was to determine if a **new, modern User Interface (UI)** with in-context prompts would lead to a higher process completion rate compared to the **traditional interface**.
 
@@ -18,25 +18,45 @@ The analysis was performed on three primary datasets, merged into a single "Sour
 
 ---
 
-## 🛠 1. EDA & Data Cleaning
+## 🛠 1. Multi-Tool Technical Implementation
 
-Before diving into the experiment results, we ensured the data was clean and understood the client base:
+We executed this project using a full data stack to ensure cross-tool validation and robust insights.
 
-- **Data Consolidation**: Merged web traffic data and joined it with demographic and experiment rosters.
-- **Cleaning**: Handled "Unknown" genders and addressed missing values in age and balance columns.
-- **Feature Engineering**: Segmented clients into **Age Bins** (Young, Middle, Senior) and **Tenure Bins** (New, Established, Long-standing).
+### 🐍 Python (EDA & Hypothesis Testing)
+
+- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn.
+- **Process**: We performed deep-dive cleaning, handled nulls, and executed **Z-Tests for Proportions** and **T-Tests** for age/balance verification to ensure scientific accuracy.
+
+### 🗄️ SQL (KPI Calculation)
+
+- **Logic**: We utilized **Window Functions** (`LEAD`, `LAG`) to calculate the exact time-to-next-step and identify "Backward Movement" errors.
+- **Structure**: We built **Common Table Expressions (CTEs)** to organize the navigation data into sequential steps, allowing us to flag any instance where a user moved from a later step back to an earlier one.
+- **Validation**: Our SQL summaries provided a structured database layer that confirmed our Python findings, ensuring 100% data integrity.
+
+### 📊 Tableau (Visualization & Storytelling)
+
+- **Interactive Dashboards**: We built comparison charts to visualize Completion Rates against the ROI Threshold.
+- **Calculated Fields**: We engineered custom metrics in Tableau to create "Success Funnels" and "Friction Heatmaps" that clearly show where clients struggled.
+
+---
+
+## 🛠 2. EDA & Data Cleaning
+
+Before analyzing the experiment, we ensured the data was clean and understood our client base:
+
+- **Data Consolidation**: We merged web traffic data with demographic and experiment rosters into a master dataframe.
+- **Cleaning**: We addressed "Unknown" genders and missing values in age and balance columns to prevent bias.
+- **Feature Engineering**: We segmented clients into **Age Bins** (Young, Middle, Senior) and **Tenure Bins**.
 
 ### Key Demographic Findings:
 
 - **The Average Client**: 48 years old with 12 years of tenure at Vanguard.
 - **Segment Distribution**: 68% of the clients are "Mid-Career" or "Pre-Retirees."
-- **Logon Behavior**: High correlation (**0.99**) between logons and phone calls, suggesting that digital friction often forces users to seek human support.
+- **Logon Behavior**: We found a high correlation (**0.99**) between logons and phone calls, suggesting digital friction often leads to manual support needs.
 
 ---
 
-## 📊 2. Performance Metrics (KPIs)
-
-We evaluated the design effectiveness through three primary KPIs:
+## 📊 3. Performance Metrics (KPIs)
 
 | KPI                          | Control (Traditional) | Test (New UI) | Result               |
 | :--------------------------- | :-------------------- | :------------ | :------------------- |
@@ -44,54 +64,32 @@ We evaluated the design effectiveness through three primary KPIs:
 | **Initial Speed (Start)**    | 177s                  | **153s**      | ✅ 24s Faster        |
 | **Error Rate (Back-clicks)** | **6.90%**             | 9.25%         | ❌ 34% More Friction |
 
-**Insight**: The new UI is excellent at "hooking" users initially, but it introduces unexpected confusion in the middle of the funnel (Step 2), leading to more backtracking than the original design.
+**Insight**: While the new UI is better at "hooking" users initially, our **Error Rate** analysis shows that users backtrack 34% more often in the Test group. We identified **Step 2** as the primary friction point where users require more clarity.
 
 ---
 
-## 🧪 3. Hypothesis Testing
+## 4. Hypothesis Testing & Business ROI
 
-We used statistical testing to validate whether the observed changes were due to the design or random chance.
-
-### A. Completion Rate Significance
-
-- **Test**: Z-test for Proportions.
-- **Result**: **Z-statistic = 8.87** (P-value < 0.0001).
-- **Conclusion**: The improvement is **statistically significant**.
-
-### B. Cost-Effectiveness Threshold
-
-- **Vanguard Threshold**: Minimum 5% increase required to justify rollout costs.
-- **Observed Lift**: **3.71%**.
-- **Conclusion**: While statistically better, the design **did not meet the business threshold** for cost-effectiveness.
-
-### C. Bias Check (Age & Balance)
-
-- **Test**: T-test on Age and Account Balance across groups.
-- **Result**: No significant differences (p > 0.05).
-- **Conclusion**: The groups were balanced, ensuring a fair "apples-to-apples" comparison.
+- **Z-Test Result**: Z-statistic = **8.87**. We found this to be **Statistically Significant** with a p-value effectively at zero.
+- **ROI Analysis**: Vanguard's **5% lift threshold** was not met (Observed: **3.71%**).
+- **Bias Check**: We performed a T-test on Age and Account Balance across groups. With $p > 0.05$, we confirmed the groups were balanced and the test was fair.
+- **Our Recommendation**: The redesign is a functional success but does not yet meet the economic requirements for a full rollout. We recommend iterating on Step 2 to reduce back-clicks and confusion.
 
 ---
 
-## 🏛 4. Final Evaluation & Recommendations
+## 🎨 5. Tableau Visualizations
 
-### Design Effectiveness
+Our final presentation includes an interactive Tableau Dashboard featuring:
 
-The experiment was structurally sound. However, the increased **Error Rate** (back-clicks) in the Test group suggests that the prompts/hints in the new UI might be causing cognitive overload.
-
-### Duration Assessment
-
-The 97-day duration was highly adequate. The massive sample size (>300k interactions) provided enough power to detect even small differences in behavior with high confidence.
-
-### 💡 Strategic Recommendations
-
-1. **Fix the "Step 2" Bottleneck**: Redesign Step 2 to reduce the time spent and the likelihood of users hitting the "Back" button.
-2. **Iterative Rollout**: Instead of a full launch, pilot a **"Test V2"** that addresses the friction found in this analysis.
-3. **Target High-Value Seniors**: Since the wealthiest segment (Seniors) had the lowest completion rate, focus on making the modern UI more accessible for older users.
+- **Completion vs. Threshold**: A bar chart with a constant reference line at 70.59% to show the "Target Gap."
+- **Success Funnel**: A visual breakdown of drop-offs at each stage of the investor journey.
+- **Friction Heatmap**: Using our SQL-derived time data to highlight Step 2 as the primary bottleneck.
 
 ---
 
 ## 💻 Tech Stack
 
-- **Python** (Pandas, NumPy, Matplotlib, Seaborn)
-- **Jupyter Notebooks**
+- **SQL**: Data extraction, CTEs, and Window Functions.
+- **Python**: Pandas, NumPy, Scipy, Matplotlib, Seaborn.
+- **Tableau**: Visual storytelling and KPI Dashboards.
 - **Statistical Logic**: Z-tests, T-tests, and Correlation Matrices.
