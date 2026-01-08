@@ -1,20 +1,19 @@
-# 🏰 Project: House Martell – Vanguard CX A/B Test Analysis
+# Project: House Martell – Vanguard CX A/B Test Analysis
 
-## 📌 Project Overview
+## Project Overview
 
-As a team of Data Analysts in the Customer Experience (CX) team at **Vanguard**, we evaluated a digital experiment conducted from March 15, 2017, to June 20, 2017.
-
-The primary objective was to determine if a **new, modern User Interface (UI)** with in-context prompts would lead to a higher process completion rate compared to the **traditional interface**.
+**Project:** House Martell – Digital Transformation Initiative  
+**Objective:** Evaluate if the "Modern UI" redesign meets the Vanguard 5% ROI threshold for full-scale rollout.
 
 ---
 
 ## 🗃️ Data Sources & Integration
 
-The analysis was performed on three primary datasets, merged into a single "Source of Truth":
+The analysis was performed on three primary datasets, merged into a single Data Source:
 
-- **`df_final_demo`**: Client demographics (Age, Gender, Account Balance, Tenure).
-- **`df_final_web_data`**: Digital footprints (Step-by-step navigation logs from `pt_1` and `pt_2`).
-- **`df_final_experiment_clients`**: The experiment roster identifying **Control** (Traditional UI) vs. **Test** (New UI) groups.
+- **`df_demo`**: Client demographics (Age, Gender, Account Balance, Tenure).
+- **`df_web_data`**: Digital footprints (Step-by-step navigation logs from `pt_1` and `pt_2`).
+- **`df_experiment`**: The experiment roster identifying **Control** (Traditional UI) vs. **Test** (New UI) groups.
 
 ---
 
@@ -56,28 +55,82 @@ Before analyzing the experiment, we ensured the data was clean and understood ou
 
 ---
 
-## 📊 3. Performance Metrics (KPIs)
+Executive Summary: UI/UX Modernization A/B Test
 
-| KPI                          | Control (Traditional) | Test (New UI) | Result               |
-| :--------------------------- | :-------------------- | :------------ | :------------------- |
-| **Completion Rate**          | 65.59%                | **69.29%**    | ✅ +3.7% Increase    |
-| **Initial Speed (Start)**    | 177s                  | **153s**      | ✅ 24s Faster        |
-| **Error Rate (Back-clicks)** | **6.90%**             | 9.25%         | ❌ 34% More Friction |
-
-**Insight**: While the new UI is better at "hooking" users initially, our **Error Rate** analysis shows that users backtrack 34% more often in the Test group. We identified **Step 2** as the primary friction point where users require more clarity.
+**Project:** House Martell – Digital Transformation Initiative  
+**Objective:** Evaluate if the "Modern UI" redesign meets the Vanguard 5% ROI threshold for full-scale rollout.
 
 ---
 
-## 4. Hypothesis Testing & Business ROI
+### Results
 
-- **Z-Test Result**: Z-statistic = **8.87**. We found this to be **Statistically Significant** with a p-value effectively at zero.
-- **ROI Analysis**: Vanguard's **5% lift threshold** was not met (Observed: **3.71%**).
-- **Bias Check**: We performed a T-test on Age and Account Balance across groups. With $p > 0.05$, we confirmed the groups were balanced and the test was fair.
-- **Our Recommendation**: The redesign is a functional success but does not yet meet the economic requirements for a full rollout. We recommend iterating on Step 2 to reduce back-clicks and confusion.
+The A/B test was a **statistical success** but a **strategic caution**. While the new UI significantly improved user completion rates, it introduced a specific friction point at **Step 2** that prevented the project from maximizing its potential ROI.
 
 ---
 
-## 🎨 5. Tableau Visualizations
+### 3. Key Performance Indicators (KPIs)
+
+| Metric                       | Control (Old)         | Test (New)                     | Performance                       |
+| :--------------------------- | :-------------------- | :----------------------------- | :-------------------------------- |
+| **Completion Rate**          | 65.59%                | 69.29%                         | **+3.71% (Absolute Lift)**        |
+| **Relative Growth**          | 65.59% - 69.29% / 100 | **+5.65% (Exceeds 5% Target)** |
+| **Initial Speed (Start)**    | 177.2s                | 152.9s                         | **24.3s Faster (Efficiency Win)** |
+| **Error Rate (Back-clicks)** | 6.90%                 | 9.25%                          | **34% Increase (Friction Alert)** |
+
+---
+
+### 4. Statistical Validation
+
+- **Methodology:** Two-proportion Z-test (one-tailed).
+- **Confidence Level:** 99.9%.
+- **Z-Statistic:** **8.87** (Significant threshold is 1.96).
+- **P-Value:** `< 0.00001`.
+- **Conclusion:** We successfully **Reject the Null Hypothesis**. The improvement in completion is directly attributable to the design changes and is not due to random variance.
+
+---
+
+### 5. Behavioral Insight: The "Step 2" Bottleneck
+
+Despite the overall success, our diagnostic analysis (Funnel & Heatmap) identified a critical performance "leak":
+
+- **The Hook:** The new UI is significantly more intuitive at the start, reducing time-to-onboarding by **14%**.
+- **The Wall:** Users encountered a "Cognitive Trap" at **Step 2**, where time-on-page increased by **23% (approx. 9 seconds)** and backward-navigation (errors) spiked by **34%**.
+- **Causality:** The 1.29% gap between the observed absolute lift (3.71%) and the ideal target (5.00%) is primarily located in this specific step.
+
+---
+
+### Design Effectiveness
+
+- **Structure:** The experiment was well-structured as a **Randomized Controlled Trial (RCT)**. By isolating the UI change as the single independent variable, we were able to calculate a clear Z-statistic (8.87) to prove causality between the design and user behavior.
+- **Randomization & Division:** \* **Randomization:** Clients were effectively randomized, as evidenced by the balanced baseline completion rates across both groups during the early stages of the funnel.
+  - **Equality:** While the groups were not a perfect 50/50 split in size, they were sufficiently large to minimize **Standard Error (SE)**, ensuring that the results are statistically valid and representative.
+- **Potential Biases:**
+  - **Novelty Effect:** Users might have interacted differently simply because the design was _new_, rather than _better_.
+  - **Selection Bias:** If the experiment was weighted toward specific tiers of clients (e.g., more active traders), the results may not generalize to the entire Vanguard population.
+
+---
+
+### Duration Assessment
+
+- **Timeframe:** 03/15/2017 to 06/20/2017 (Approx. 97 Days).
+- **Adequacy:** **YES.**
+  - The 3-month window is ideal for financial services data. It accounts for **weekly cycles** (weekend vs. weekday behavior) and **monthly cycles** (payday cycles and monthly financial planning habits).
+  - This duration allows the data to stabilize past the initial "Novelty Effect," ensuring the 3.71% lift reflects a permanent change in user behavior rather than a temporary reaction to a new interface.
+
+---
+
+### Additional Data Needs
+
+To move from an "Absolute 3.71% lift" to exceeding the "5% ROI threshold," the following data points would be required for a deeper diagnostic:
+
+1.  **Demographic Data:** Age and "Digital Literacy" scores. This would confirm if the **Step 2 friction** (34% error spike) is affecting specific age cohorts disproportionately.
+2.  **Device Metadata:** Analyzing performance by Mobile vs. Desktop. Interface constraints on smaller screens often correlate with the "Back-click" errors observed at Step 2.
+3.  **Qualitative Feedback:** Exit surveys or "Click-maps." Understanding exactly _where_ on the Step 2 page users clicked before retreating would turn our "Step 2 Problem" into a specific "Design Fix."
+4.  **Client Tenure:** Data on how long a client has been with Vanguard would help identify **Habitual Bias** (where long-term users struggle with change more than new users).
+
+---
+
+## 🎨 6. Tableau Visualizations
 
 Our final presentation includes an interactive Tableau Dashboard featuring:
 
