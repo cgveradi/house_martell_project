@@ -67,12 +67,12 @@ The A/B test was a **statistical success** but a **strategic caution**. While th
 
 ### 3. Key Performance Indicators (KPIs)
 
-| Metric                       | Control (Old) | Test (New)         | Performance                       |
-| :--------------------------- | :------------ | :----------------- | :-------------------------------- |
-| **Completion Rate**          | 65.59%        | 69.29%             | **+3.71% (Absolute Lift)**        |
-| **Relative Growth**          | 65.59%        | 69.29% minus / 100 | **+5.65% (Exceeds 5% Target)**    |
-| **Initial Speed (Start)**    | 177.2s        | 152.9s             | **24.3s Faster (Efficiency Win)** |
-| **Error Rate (Back-clicks)** | 6.90%         | 9.25%              | **34% Increase (Friction Alert)** |
+| Metric                       | Control (Old) | Test (New) | Performance                       |
+| :--------------------------- | :------------ | :--------- | :-------------------------------- |
+| **Completion Rate**          | 65.59%        | 69.29%     | **+3.71% (Absolute Lift)**        |
+| **Relative Growth**          | 65.59%        | 69.29%     | **+5.65% (Exceeds 5% Target)**    |
+| **Initial Speed (Start)**    | 177.2s        | 152.9s     | **24.3s Faster (Efficiency Win)** |
+| **Error Rate (Back-clicks)** | 6.90%         | 9.25%      | **34% Increase (Friction Alert)** |
 
 ---
 
@@ -127,6 +127,8 @@ Despite the overall success, our diagnostic analysis (Funnel & Heatmap) identifi
 ## 🎨 6. Tableau Visualizations
 
 Our final presentation includes an interactive Tableau Dashboard featuring:
+
+https://public.tableau.com/app/profile/carlos.vera8838/viz/Martel_Project/Dashboard1
 
 - **Completion vs. Threshold**: A bar chart with a constant reference line at 70.59% to show the "Target Gap."
 - **Success Funnel**: A visual breakdown of drop-offs at each stage of the investor journey.
